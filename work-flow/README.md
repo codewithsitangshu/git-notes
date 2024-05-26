@@ -83,11 +83,11 @@ The `-m` flag allows you to add a commit message, which is a brief description o
 
 A commit in Git includes several key components:
 
-- Commit ID (SHA-1 hash): A unique identifier for the commit.
-- Author: The person who made the changes.
-- Date/Time: When the commit was made.
-- Commit Message: A description of what changes were made.
-- Complete Snapshot: Git stores the complete state of your files at the time of the commit, allowing you to revert back to this exact state if needed.
+- **Commit ID (SHA-1 hash):** A unique identifier for the commit.
+- **Author:** The person who made the changes.
+- **Date/Time:** When the commit was made.
+- **Commit Message:** A description of what changes were made.
+- **Complete Snapshot:** Git stores the complete state of your files at the time of the commit, allowing you to revert back to this exact state if needed.
 
 ![staging](Commit.PNG)
 
@@ -115,3 +115,188 @@ Frequent commits are a good practice in Git. Committing often helps you track yo
 A good rule of thumb is to commit logically related changes together. Each commit should represent a single purpose or task. For example, if you're fixing a bug and adding a new feature, create separate commits for each.
 
 By following these practices, you can maintain a clean and organized project history, making it easier to manage and collaborate on your code.
+
+
+## Skipping the Staging Area
+
+If you want to skip the staging area and commit your changes directly, you can use the `-a` option with the git commit command. The `-a` stands for "all," and it tells Git to automatically stage files that have been modified and deleted, but not **new files**.
+
+Here’s how you can do it:
+
+1. Modify your files as needed.
+2. Use the following command to commit your changes without adding them to the staging area first
+
+```bash
+git commit -am "Your commit message"
+```
+
+### Important Points to Remember
+
+- **Only Modified and Deleted Files:** The -a option only works for files that have been modified or deleted. If you have new files that have not been added to the repository before, you will still need to use git add to stage those files first.
+
+- **Commit Message:** Always provide a clear and descriptive commit message to explain what changes you’ve made. This helps in understanding the history of your project.
+
+### Why Skip the Staging Area?
+
+Skipping the staging area can save time and is useful when you are making quick fixes or minor updates. However, it’s a good practice to use the staging area for more significant changes, as it gives you more control over what you are committing.
+
+
+## Deleting Files in Git
+
+![remove](remove.gif)
+
+Let’s say you have a Git project folder called Mars. Inside this folder, there are two files: file1.txt and file2.txt.
+
+```
+Mars/
+├── file1.txt
+└── file2.txt
+```
+
+If you want to delete file2.txt, you might initially use the `rm` command:
+
+```bash
+rm file2.txt
+```
+
+After deleting the file with `rm`, you might want to check the status of your repository to see the changes you’ve made.
+
+```bash
+git status
+```
+ So the output will indicate that `file2.txt` is deleted from the working directory but not yet staged for removal:
+
+```plaintext
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+After using `rm file2.txt`, you need to tell Git about the deletion. You do this by staging the deleted file:
+
+```bash
+git add file2.txt
+```
+
+However, there’s a more efficient way to do this.
+
+Instead of using two separate commands, you can use `git rm` to delete the file from the working directory and stage the deletion in a single step:
+
+```bash
+git rm file2.txt
+```
+
+This command removes `file2.txt` from both the `working directory` and the `staging area` in one go.
+
+Now you might want to check the status of your repository.
+
+```bash
+git status
+```
+
+The output will show that `file2.txt` is deleted and staged for removal:
+
+```plaintext
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    file2.txt
+```
+
+After using `git rm` and checking the status, you need to commit the changes to your repository:
+
+```bash
+git commit -m "Removed file2.txt from the project"
+```
+
+
+## Renaming Files in Git
+
+![rename](Rename.jpg)
+
+Let’s say you have a Git project folder called Mars. Inside this folder, there are two files: file1.txt and file2.txt.
+
+```
+Mars/
+├── file1.txt
+└── file2.txt
+```
+
+If you want to rename `file2.txt` to `main.js`, you might initially use the mv command:
+
+```bash
+mv file2.txt main.js
+```
+
+After running this command, `file2.txt` is renamed to `main.js` in your working directory. However, Git does not automatically recognize this change. If you check the status using `git status`, you will see something like this:
+
+```bash
+git status
+```
+
+Output
+
+``` plaintext
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    file2.txt
+        untracked:  main.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+To stage this change, you need to perform two separate operations:
+
+```bash
+git add file2.txt
+git add main.js
+```
+
+Then, if you check the status again, you will see:
+
+```bash
+git status
+```
+
+Output
+
+``` plaintext
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    file2.txt
+        new file:   main.js
+```
+
+Instead of using two separate commands, you can use git mv to rename the file and stage the change in one step:
+
+```bash
+git mv file2.txt main.js
+```
+
+This command renames file2.txt to main.js and stages the change automatically. Now, if you check the status:
+
+```bash
+git status
+```
+
+You should see:
+
+``` plaintext
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    file2.txt -> main.js
+```
+
+After using `git mv` and checking the status, you need to commit the changes to your repository:
+
+```bash
+git commit -m "Renamed file2.txt to main.js"
+```
