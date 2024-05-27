@@ -105,7 +105,7 @@ git restore --staged file2.txt
 
 `git restore --staged file2.txt` this command unstages `file2.txt` by removing it from the staging area. Since `file2.txt` was newly added and not present in the repository, it becomes untracked `(??)` in the status output. The changes in your working directory remain intact, but `file2.txt` is no longer staged for the next commit.
 
-![restore](restore.png)
+![restore](restore.PNG)
 
 ### How git restore Works
 - `git restore --staged file1.txt` this command unstages `file1.txt` by removing it from the staging area. The changes in your working directory remain intact, but the file is no longer staged for the next commit.
