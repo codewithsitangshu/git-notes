@@ -10,3 +10,4 @@
 - [Effective use of .gitignore](gitignore/README.md)
 - [Understanding git status](git-status/README.md)
 - [Understanding git diff](git-diff/README.md)
+- [View Commit History](git-history-commit/README.md)
