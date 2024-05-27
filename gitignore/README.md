@@ -133,3 +133,9 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
+
+### Using Predefined `.gitignore` Templates
+
+For more specific use cases, you can use predefined `.gitignore` templates. GitHub provides a comprehensive collection of `.gitignore` templates for different languages and frameworks. These templates can help you quickly set up a `.gitignore` file tailored to your project's needs.
+
+Visit the GitHub `.gitignore` repository at [github.com/github/gitignore](https://github.com/github/gitignore) to find templates for various programming languages, frameworks, and tools. Simply download the relevant template and customize it as needed for your project.
