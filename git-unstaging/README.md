@@ -51,7 +51,7 @@ Now, `file1.txt` is no longer staged with its latest changes. The M indicates th
 
 - `git reset HEAD file1.txt` this command removes `file1.txt` from the staging area. It takes the content of `file1.txt` from the `last commit (from the repository)` and updates the staging area with that version, leaving your working directory (the current state of the files on your computer) unchanged. Essentially, this reverts the file in the staging area to how it was in the last commit, but your recent changes will still be present in your working directory.
 
-![reset](reset.png)
+![reset](reset.PNG)
 
 To unstage all files in your project, use the following command:
 
