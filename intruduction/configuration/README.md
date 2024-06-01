@@ -1,3 +1,5 @@
+[Home](../../README.md)
+
 # Git Configuration
 
 ![Logo](config.gif)
@@ -75,3 +77,5 @@ git config --global -e
 
 
 In summary, configuring Git properly is a small step that can save you a lot of hassle down the line. By setting up your global configurations for username, email, line endings,  default editor etc, you ensure a smoother workflow. And knowing the difference between global, system, and local settings helps you customize Git to suit your needs perfectly.
+
+[Home](../../README.md)

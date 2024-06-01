@@ -1,3 +1,6 @@
+
+[Home](../../README.md)
+
 # Centralized Version Control vs Distributed Version Control
 
 ![Logo](Centralized-vs-Distributed-Version-Control.png)
@@ -61,3 +64,5 @@ Examples of distributed version control systems include Git and Mercurial.
 ## Conclusion
 
 While Centralized Version Control played an essential role in the history of software development, Distributed Version Control has largely taken over due to its many advantages. DVC offers better reliability, flexibility, performance, and scalability. For modern development teams, especially those working on large or complex projects, Distributed Version Control is typically the better choice. However, understanding both systems helps appreciate the evolution of version control and why distributed systems have become the standard in the industry.
+
+[Home](../../README.md)

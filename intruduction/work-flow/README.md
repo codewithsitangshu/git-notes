@@ -1,3 +1,5 @@
+[Home](../../README.md)
+
 # Git Workflow
 
 ![Logo](Feature-image.jpg)
@@ -139,3 +141,5 @@ git commit -am "Your commit message"
 ### Why Skip the Staging Area?
 
 Skipping the staging area can save time and is useful when you are making quick fixes or minor updates. However, it’s a good practice to use the staging area for more significant changes, as it gives you more control over what you are committing.
+
+[Home](../../README.md)
