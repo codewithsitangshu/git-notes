@@ -152,7 +152,7 @@ If you want to discard the changes in `file2.txt`, which is an untracked file, y
 Before running the command, it's a good idea to see the available options by checking the help:
 
 ```sh
-$ git clean -h
+git clean -h
 ```
 
 ![git-clean-help](git-clean-help.PNG)
@@ -160,7 +160,7 @@ $ git clean -h
 To discard the untracked file `file2.txt`, you can use the following command:
 
 ```sh
-$ git clean -fd
+git clean -fd
 ```
 
 Here, `-f` stands for "force" and `-d` stands for "directories". This command will delete all untracked files and directories in your working directory.
@@ -168,7 +168,7 @@ Here, `-f` stands for "force" and `-d` stands for "directories". This command wi
 Now, let's check the status again:
 
 ```sh
-$ git status -s
+git status -s
 ```
 
 ![local-change-discard-unstaged](local-change-discard-unstaged.PNG)
@@ -176,3 +176,60 @@ $ git status -s
 This should show no output, indicating that there are no more untracked or modified files.
 
 By following these steps, you can ensure that your working directory is clean and only contains the files you want to keep. Always be cautious with `git clean` as it permanently deletes files without the possibility of recovery.
+
+## Restore a File to an Earlier Version Using `git restore`
+
+Have you ever deleted or modified a file in your project and then realized you need to get it back? With Git, this is easy! Git keeps track of every version of your files, so you can restore them to any previous state. Let's walk through how to do this with a practical example.
+
+Imagine you have a project with a file named `file1.txt`. At some point, you delete this file but later realize you need it back. Here's how to restore it.
+
+First, let's delete `file1.txt` using the `git rm` command, which removes the file from both the working directory and the staging area.
+
+```sh
+git rm file1.txt
+```
+
+![git-rm-file](git-rm-file.PNG)
+
+Next, commit this change.
+
+```sh
+git commit -m "Delete file1.txt"
+```
+
+Let's say you realize deleting `file1.txt` was a mistake. To restore it, first check your commit history to find the commit before the deletion.
+
+```sh
+git log --oneline
+```
+
+You will see a list of commits, each with a unique `commit ID`. Find the commit ID of the commit just before the one that deleted `file1.txt`.
+
+![commit-deletion](commit-deletion.PNG)
+
+Now, use the `git restore` command to restore `file1.txt` to its previous version. You need to specify the `commit ID` or use a relative reference to identify the correct commit.
+
+```sh
+git restore --source=HEAD~1 file1.txt
+```
+
+Here, `HEAD~1` refers to the commit immediately before the current one.
+
+Finally, check the status to confirm that `file1.txt` has been restored.
+
+```sh
+git status
+```
+
+You should see file1.txt listed as an untracked file if it was successfully restored.
+
+![git-restore-help](git-restore-help.PNG)
+
+![git-restore-deleted-file](git-restore-deleted-file.PNG)
+
+The `git restore` command is powerful because it allows you to bring back files from previous commits without undoing your other changes. Here's how it works in this scenario:
+
+- When you delete `file1.txt` and commit the change, Git saves this state as a new commit.
+- By using `git restore --source=HEAD~1 file1.txt`, you tell Git to look at the commit before the last one `(HEAD~1)` and restore `file1.txt` from there.
+
+This way, `file1.txt` is brought back to your working directory as it was in the specified commit, allowing you to continue working with it as needed.
