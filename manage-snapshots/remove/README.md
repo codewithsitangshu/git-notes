@@ -1,3 +1,5 @@
+[Home](../../README.md)
+
 # Deleting Files in Git
 
 ![remove](remove.gif)
@@ -69,3 +71,5 @@ After using `git rm` and checking the status, you need to commit the changes to 
 ```bash
 git commit -m "Removed file2.txt from the project"
 ```
+
+[Home](../../README.md)

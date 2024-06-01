@@ -1,3 +1,5 @@
+[Home](../../README.md)
+
 # Renaming Files in Git
 
 ![rename](Rename.jpg)
@@ -84,3 +86,5 @@ After using `git mv` and checking the status, you need to commit the changes to 
 ```bash
 git commit -m "Renamed file2.txt to main.js"
 ```
+
+[Home](../../README.md)

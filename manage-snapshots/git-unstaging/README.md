@@ -1,3 +1,5 @@
+[Home](../../README.md)
+
 # Unstage a File in Git Before Committing
 
 ![Logo](logo.png)
@@ -233,3 +235,5 @@ The `git restore` command is powerful because it allows you to bring back files 
 - By using `git restore --source=HEAD~1 file1.txt`, you tell Git to look at the commit before the last one `(HEAD~1)` and restore `file1.txt` from there.
 
 This way, `file1.txt` is brought back to your working directory as it was in the specified commit, allowing you to continue working with it as needed.
+
+[Home](../../README.md)

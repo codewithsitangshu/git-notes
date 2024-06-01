@@ -1,3 +1,5 @@
+[Home](../../README.md)
+
 # Understanding `git status` and How to Use `Short` Status in Git
 
 ![Logo](git-states.png)
@@ -111,3 +113,4 @@ This means:
 ## Summary
 Using `git status` helps you keep track of changes in your project. The short status (`git status -s`) provides a concise overview, showing which files are modified, staged, or untracked. Understanding the staging area and working directory is crucial for efficient version control. By mastering these commands, you can better manage your Git workflow and keep your project organized.
 
+[Home](../../README.md)

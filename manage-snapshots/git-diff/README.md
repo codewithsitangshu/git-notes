@@ -1,3 +1,5 @@
+[Home](../../README.md)
+
 # Git Diff
 
 ![Logo](git-diff.jpg)
@@ -140,3 +142,5 @@ index 5ab2f8a..34d7664 100644
 
 
 `git diff` is a powerful tool in Git that helps you understand the differences between various versions of your files. It's essential for tracking changes, reviewing modifications, and collaborating effectively on projects. By mastering git diff, you can gain better insights into your project's history and manage changes with confidence.
+
+[Home](../../README.md)
