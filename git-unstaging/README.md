@@ -112,7 +112,7 @@ git restore --staged file2.txt
 
 Using the `git reset HEAD <file>` or `git restore --staged <file>` commands, you can easily unstage files from the staging area. These commands allow you to control exactly which changes you want to commit. By mastering these simple yet powerful commands, you'll have better control over your version control workflow in Git.
 
-### Discard Local Changes Using `git restore`
+## Discard Local Changes Using `git restore`
 
 Sometimes when working on a project, you make changes that you later decide you don't want to keep. Git provides a way to discard these local changes easily using the `git restore` command. Here we'll walk through an example scenario to demonstrate how to use git restore to revert changes in your project.
 
