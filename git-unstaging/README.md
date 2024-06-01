@@ -111,3 +111,68 @@ git restore --staged file2.txt
 - `git restore --staged file1.txt` this command unstages `file1.txt` by removing it from the staging area. The changes in your working directory remain intact, but the file is no longer staged for the next commit.
 
 Using the `git reset HEAD <file>` or `git restore --staged <file>` commands, you can easily unstage files from the staging area. These commands allow you to control exactly which changes you want to commit. By mastering these simple yet powerful commands, you'll have better control over your version control workflow in Git.
+
+### Discard Local Changes Using `git restore`
+
+Sometimes when working on a project, you make changes that you later decide you don't want to keep. Git provides a way to discard these local changes easily using the `git restore` command. Here we'll walk through an example scenario to demonstrate how to use git restore to revert changes in your project.
+
+Based on above example, `file1.txt` has changes that were once staged and then unstaged. `file2.txt` has changes but was never added to the staging area.
+
+Here's what the `git status -s` output looks like:
+
+```sh
+$ git status -s
+ M file1.txt
+?? file2.txt
+```
+
+This shows that `file1.txt` has modifications and `file2.txt` is an untracked file.
+
+To discard the changes in `file1.txt` and revert it back to its last committed state, you can use the git restore command:
+
+```sh
+git restore file1.txt
+```
+
+Now, if you check the status again:
+
+```sh
+$ git status -s
+?? file2.txt
+```
+
+![local-change-discard-staged](local-change-discard-staged.PNG)
+
+`file1.txt` is no longer listed because its changes have been discarded, reverting it to its last committed state. However, `file2.txt` is still untracked and has local changes.
+
+If you want to discard the changes in `file2.txt`, which is an untracked file, you'll need to use the `git clean` command. The `git clean` command removes untracked files from your working directory.
+
+**Warning:** Using `git clean` is a dangerous operation as it permanently deletes untracked files and they cannot be recovered.
+
+Before running the command, it's a good idea to see the available options by checking the help:
+
+```sh
+$ git clean -h
+```
+
+![git-clean-help](git-clean-help.PNG)
+
+To discard the untracked file `file2.txt`, you can use the following command:
+
+```sh
+$ git clean -fd
+```
+
+Here, `-f` stands for "force" and `-d` stands for "directories". This command will delete all untracked files and directories in your working directory.
+
+Now, let's check the status again:
+
+```sh
+$ git status -s
+```
+
+![local-change-discard-unstaged](local-change-discard-unstaged.PNG)
+
+This should show no output, indicating that there are no more untracked or modified files.
+
+By following these steps, you can ensure that your working directory is clean and only contains the files you want to keep. Always be cautious with `git clean` as it permanently deletes files without the possibility of recovery.

@@ -11,3 +11,4 @@
 - [Understanding git status](git-status/README.md)
 - [Understanding git diff](git-diff/README.md)
 - [View Commit History](git-history-commit/README.md)
+- [Unstage Files and Discarding Local Changes](git-unstaging/README.md)
